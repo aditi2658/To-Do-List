@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>TODO List (tasks)</title>
+<style>
+.todo-done {
+    text-decoration: line-through;
+}
+.todo-new {
+    text-decoration: none;
+}
+</style>
+</head>
+<body>
+<h1>TODO List (tasks)</h1>
+<h2>App</h2>
+<p>Add todos (tasks) to a todo list, cross them out when done</p>
+<input type="text" id="myText" placeholder="Add todo">  <button onclick="myFunction()">Add task</button>
+<div id = "todolist"> </div> <button onclick="removeItem()">Remove completed items</button>
+<h2>Challenges for the next class</h2>
+<ol>
+  <li>- [ ] I will wake up at 8 in the morning</li>
+  <li>- [ ] I will practise html for 1 hour</li>
+<li>- [ ] I will give time for 2 hrs CSS</li>
+  <li>- [ ] Then I will have breakfast</li>
+</ol>
+<script>
+function myFunction() {
+    var para = document.createElement("P");
+    para.setAttribute("class", "todo-new");
+    para.setAttribute("onclick", "toggle(event)");
+    var theText = document.getElementById("myText");
+    s = theText.value;
+    var textnode = document.createTextNode(s);
+    para.appendChild(textnode);
+    document.getElementById("todolist").appendChild(para);
+}
+function toggle(event) {
+  if(event.target.getAttribute("class")==="todo-new"){
+        event.target.setAttribute("class", "todo-done")
+  }
+}
+function removeItem() {
+}
+</script>
+</body>
+</html>
